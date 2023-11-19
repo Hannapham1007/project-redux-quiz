@@ -1,0 +1,35 @@
+.summary-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-image: url("../assets/welcomebg.png");
+  background-size: cover;
+}
+
+.summary-content {
+  min-width: 300px;
+  min-height: 300px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.95);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.title {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 786px) {
+  .summary-content {
+    width: 200px;
+    height: 200px;
+  }
+}

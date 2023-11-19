@@ -1,0 +1,19 @@
+.progress-bar {
+    width: 500px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    border-radius: 5px;
+    border-radius: 20px;
+   margin-top: 0;
+  }
+  
+  .progress {
+    height: 20px;
+    background-color: #4CAF50;
+  }
+@media(max-width: 768px){
+    .progress-bar{
+        width: 250px;
+    }
+}

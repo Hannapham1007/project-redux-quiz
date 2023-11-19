@@ -1,27 +1,54 @@
 import { createSlice } from "@reduxjs/toolkit";
+import canada from "../assets/canada.jpg";
+import malaysia from "../assets/malaysia.jpg";
+import thailand from "../assets/thailand.jpg";
+import bolivia from "../assets/bolivia.jpg";
+import portugal from "../assets/portugal.jpg";
 
 // Change these to your own questions!
 const questions = [
   {
     id: 1,
-    questionText: "Who set the Olympic record for the 100m dash in 2012?",
-    options: ["Usain Bolt", "Justin Gatlin", "Tyson Gay", "Asafa Powell"],
-    correctAnswerIndex: 0
+    image: canada,
+    questionText: "What is the capital of Canada?",
+    options: ["Ottawa", "Toronto", "Montreal", "Calgary"],
+    correctAnswerIndex: 0,
   },
   {
     id: 2,
-    questionText:
-      "When was Michael Phelps last named male World Swimmer of the Year?",
-    options: ["2012", "2014", "2016", "2018"],
-    correctAnswerIndex: 2
-  }
+    image: malaysia,
+    questionText: "What is the capital of Malaysia?",
+    options: ["Sabah", "Sarawak", "Penang", "Kuala Lumpur"],
+    correctAnswerIndex: 3,
+  },
+  {
+    id: 3,
+    image: thailand,
+    questionText: "What is the capital of Thailand?",
+    options: ["Bangkok", "Hanoi", "Phuket", "Jakarta"],
+    correctAnswerIndex: 0,
+  },
+  {
+    id: 4,
+    image: bolivia,
+    questionText: "What is the capital of Bolivia?",
+    options: ["Sucre", "La Paz", "Cochabamba", "Oruro"],
+    correctAnswerIndex: 0,
+  },
+  {
+    id: 5,
+    image: portugal,
+    questionText: "What is the capital of Portugal?",
+    options: ["Lisbon", "Porto", "Seville", "Sintra"],
+    correctAnswerIndex: 0,
+  },
 ];
 
 const initialState = {
   questions,
   answers: [],
   currentQuestionIndex: 0,
-  quizOver: false
+  quizOver: false,
 };
 
 export const quiz = createSlice({
@@ -43,6 +70,10 @@ export const quiz = createSlice({
      * When dispatching this action, you should pass an object as the payload with `questionId`
      * and `answerIndex` keys. See the readme for more details.
      */
+    startQuiz: (state) => {
+      state.start = true;
+    },
+
     submitAnswer: (state, action) => {
       const { questionId, answerIndex } = action.payload;
       const question = state.questions.find((q) => q.id === questionId);
@@ -64,7 +95,7 @@ export const quiz = createSlice({
         answerIndex,
         question,
         answer: question.options[answerIndex],
-        isCorrect: question.correctAnswerIndex === answerIndex
+        isCorrect: question.correctAnswerIndex === answerIndex,
       });
     },
 
@@ -92,6 +123,6 @@ export const quiz = createSlice({
      */
     restart: () => {
       return initialState;
-    }
-  }
+    },
+  },
 });
